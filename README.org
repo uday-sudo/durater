@@ -1,4 +1,9 @@
-#+title: Readme
+#+title: Durater
 [[file:resources/logo_banner.png]]
-* DURATER
 *** Introduction
+Durater is a project that seeks to make an very customizable time management tool beyond regular reminders and todo lists, for Android.(This is being made mainly because i am bored and i wanted to get into android development.)
+*** Features:
++ This list is more empty than my mind.
+*** TODO list:
++ Modern GUI.
++ Great amount of customixability
