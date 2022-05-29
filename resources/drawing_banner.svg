@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
+   width="924mm"
    height="198mm"
-   viewBox="0 0 210 198.00001"
+   viewBox="0 0 924 198.00001"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
-   sodipodi:docname="drawing.svg"
+   sodipodi:docname="drawing_banner.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.45795779"
-     inkscape:cx="577.56415"
-     inkscape:cy="328.63291"
+     inkscape:zoom="0.91591558"
+     inkscape:cx="577.01824"
+     inkscape:cy="260.39518"
      inkscape:window-width="1869"
      inkscape:window-height="1052"
      inkscape:window-x="51"
@@ -34,7 +34,7 @@
      inkscape:current-layer="layer1"
      units="mm"
      scale-x="1"
-     width="300mm" />
+     width="700mm" />
   <defs
      id="defs2">
     <rect
@@ -254,7 +254,7 @@
        d="m -116.9795,71.233707 a 13.044746,14.276809 0 0 1 11.76668,-5.479664 13.044746,14.276809 0 0 1 10.391096,8.15695"
        transform="scale(-1,1)" />
     <path
-       style="fill:none;stroke:#ee5a5a;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#ee5a5a;stroke-width:0.8;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 126.84281,38.88639 c 0.45863,3.468746 2.49421,6.697634 5.42616,8.607136 2.93196,1.909501 6.70819,2.465686 10.06618,1.482604 0.18578,-0.05439 0.37026,-0.113207 0.55323,-0.17639"
        id="path21679"
        inkscape:path-effect="#path-effect21681"
@@ -285,5 +285,13 @@
        style="opacity:1;fill:#6c5d53;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 92.889098,109.05778 c 0.14043,-0.0567 0.370229,-0.0567 0.510659,0 0.140433,0.0567 0.02553,0.10303 -0.255328,0.10303 -0.280863,0 -0.395764,-0.0464 -0.255331,-0.10303 z"
        id="path32347" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,15.235628,-50.51861)"
+       id="text6946"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:693.333px;line-height:1.25;font-family:'FantasqueSansMono Nerd Font Mono';-inkscape-font-specification:'FantasqueSansMono Nerd Font Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect6948);fill:#e3dedb;fill-opacity:1;stroke:none"><tspan
+         x="711.32227"
+         y="777.6566"
+         id="tspan15039">DURATER</tspan></text>
   </g>
 </svg>
