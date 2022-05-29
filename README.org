@@ -1,0 +1,4 @@
+#+title: Readme
+[[file:resources/logo_extended.png]]
+* DURATER
+*** Introduction
