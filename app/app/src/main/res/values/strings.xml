@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Durater</string>
+    <string name="pomodoro">Pomodoro</string>
+    <string name="todo_list">Todo List</string>
+    <string name="reminders">Reminders</string>
+</resources>
