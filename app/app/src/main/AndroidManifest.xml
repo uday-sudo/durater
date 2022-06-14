@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Durater"
         tools:targetApi="31">
         <activity
+            android:name=".Reminder"
+            android:exported="false" />
+        <activity
+            android:name=".Todo"
+            android:exported="false" />
+        <activity
+            android:name=".Pomodoro"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
