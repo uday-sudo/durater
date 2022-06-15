@@ -15,6 +15,17 @@ class MainActivity : AppCompatActivity() {
     lateinit var reminderButton : Button
     lateinit var messageView : TextView
     lateinit var githubLink : ImageButton
+    var quotes = arrayOf("Do not scroll too much reddit, it will harm your health.\n - Tonald Drump",
+    "Human's attention span has become shorter than a gold fish's Attention span research suggests",
+    "TikTok is cringe\n -Sane People",
+    "Try reading a Book in your free time.",
+    "Do not binge watch, as it affects the entertainment value you receive, negatively.",
+    "15-30 Minutes of exercise is all you need to remain healthy",
+    "Try to get through your day with no coffee. It is a challenge.",
+    "Never Skip your breakfast.",
+    "Why not drink a glass of water shall we.",
+    "Sleep well, the memes aren't worth it to sleep less for, trust me.",
+    "Your should stretch your legs been sitting too long?")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         reminderButton = findViewById(R.id.openReminder)
         messageView = findViewById(R.id.bottomText)
         githubLink = findViewById(R.id.rateUs)
+        messageView.setText(quotes.random())
 
         //open the github link
         githubLink.setOnClickListener {
@@ -45,11 +57,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Open Rminders activity
+        //Open Reminders activity
         reminderButton.setOnClickListener {
             var intent = Intent(this@MainActivity,Reminder::class.java)
             startActivity(intent)
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        messageView.setText(quotes.random())
     }
 }
