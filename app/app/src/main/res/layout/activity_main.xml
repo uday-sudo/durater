@@ -38,28 +38,11 @@
         app:cornerRadius="15dp"
         app:icon="@drawable/ic_checkbox"
         app:iconSize="65dp"
-        app:layout_constraintBottom_toTopOf="@+id/openReminder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openPomodoro"
-        tools:ignore="TextContrastCheck" />
-
-    <Button
-        android:id="@+id/openReminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#CE4A4B"
-        android:text="@string/reminders"
-        android:textSize="22sp"
-        app:cornerRadius="15dp"
-        app:icon="@android:drawable/ic_lock_idle_alarm"
-        app:iconSize="60dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openTodo"
+        app:layout_constraintTop_toBottomOf="@+id/openPomodoro"
         tools:ignore="TextContrastCheck" />
 
     <TextView
