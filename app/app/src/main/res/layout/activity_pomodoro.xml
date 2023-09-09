@@ -17,11 +17,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791"
+        app:layout_constraintVertical_bias="0.87"
         app:srcCompat="@drawable/ic_stop" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,35 +30,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="60dp"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791"
+        app:layout_constraintVertical_bias="0.87"
         app:srcCompat="@drawable/ic_play" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fab_play"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toEndOf="@+id/fab_stop"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789"
+        app:layout_constraintVertical_bias="0.87"
         app:srcCompat="@drawable/ic_pause" />
 
     <TextView
         android:id="@+id/textView_pomodoro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pomodoro: "
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
+        android:text="Work:"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText_pomodoro"
         app:layout_constraintEnd_toStartOf="@+id/editText_pomodoro"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -72,18 +78,20 @@
         android:textColor="#ECDDDD"
         android:textColorHint="#939393"
         app:layout_constraintBottom_toTopOf="@+id/editText_break"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView_break"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
         android:text="Break: "
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText_break"
         app:layout_constraintEnd_toStartOf="@+id/editText_break"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -91,7 +99,6 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="144dp"
-        android:layout_marginBottom="444dp"
         android:hint="Minutes"
         android:inputType="number"
         android:maxLength="3"
@@ -99,16 +106,19 @@
         android:textColor="#FFECDDDD"
         android:textColorHint="#A8A8A8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.31" />
 
     <Button
         android:id="@+id/button_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="36dp"
         android:text="Set"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText_break"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/editText_break"
+        app:layout_constraintStart_toEndOf="@+id/editText_pomodoro"
+        app:layout_constraintTop_toTopOf="@+id/editText_pomodoro" />
 
     <TextView
         android:id="@+id/textView_countdown"
@@ -125,19 +135,20 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_break"
-        app:layout_constraintVertical_bias="0.618"
+        app:layout_constraintVertical_bias="0.65"
         tools:text="05:00" />
 
     <TextView
         android:id="@+id/textView_completed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="66dp"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_break"
+        app:layout_constraintTop_toBottomOf="@+id/include3"
         tools:text="0" />
 
 

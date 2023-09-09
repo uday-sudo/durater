@@ -58,7 +58,7 @@ class ForegroundService : Service() {
         val notificationIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
-            0, notificationIntent, 0
+            0, notificationIntent, PendingIntent.FLAG_IMMUTABLE
         )
         val notification: Notification =
             Builder(this, CHANNEL_ID)
@@ -103,7 +103,7 @@ class ForegroundService : Service() {
 
     companion object {
         const val CHANNEL_ID = "ForegroundServiceChannel"
-        const val COUNTDOWN_BR = "ForegounrdService.countdown_br"
+        const val COUNTDOWN_BR = "ForegroundService.countdown_br"
 
     }
 }

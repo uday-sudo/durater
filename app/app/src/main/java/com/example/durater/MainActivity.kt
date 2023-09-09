@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var pomodoro : Button
     lateinit var todoButton : Button
     lateinit var messageView : TextView
-    lateinit var githubLink : ImageButton
-    var quotes = arrayOf("Do not scroll too much reddit, it will harm your health.\n - Tonald Drump",
-    "Human's attention span has become shorter than a gold fish's Attention span research suggests",
-    "TikTok is cringe\n -Sane People",
+    lateinit var supportButton : Button
+    var quotes = arrayOf("Do not scroll too much reddit, it will harm your health.\n   - Tonald Drump",
+    "Human's attention span has become shorter than a gold fish's Attention span, research suggests",
+    "TikTok is cringe\n   - Sane People",
     "You should try reading a Book in your free time.",
-    "Have an 15-30 minutes exercise rutine daily.",
+    "Having an 30 minutes exercise routine daily is an anti aging remedy.",
     "Try to get through your day with no coffee. It is a challenge.",
     "Never Skip your breakfast.",
     "Why not drink a glass of water shall we.",
@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
         pomodoro = findViewById(R.id.openPomodoro)
         todoButton = findViewById(R.id.openTodo)
         messageView = findViewById(R.id.bottomText)
-        githubLink = findViewById(R.id.rateUs)
+        supportButton = findViewById(R.id.support)
         messageView.setText(quotes.random())
 
-        //open the github link
-        githubLink.setOnClickListener {
+        //open buy me a coffee page
+        supportButton.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse("https://github.com/uday-sudo/durater")
+            openURL.data = Uri.parse("https://www.buymeacoffee.com/uday101")
             startActivity(openURL)
         }
 

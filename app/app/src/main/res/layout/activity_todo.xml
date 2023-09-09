@@ -25,11 +25,11 @@
 
         <EditText
             android:id="@+id/editText"
+            android:background = "@drawable/rounded_edittext"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:autofillHints=""
-            android:background="#232735"
             android:ems="10"
             android:hint="Add New"
             android:inputType="textPersonName"
@@ -45,7 +45,9 @@
             android:layout_width="50dp"
             android:layout_height="55dp"
             android:text="+"
-            android:textSize="22sp"
+            android:textSize="28sp"
+            app:cornerRadius="40dp"
+            android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

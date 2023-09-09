@@ -6,6 +6,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.*
 import android.content.pm.ActivityInfo
+import android.graphics.Color
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
@@ -42,6 +45,58 @@ class Pomodoro : AppCompatActivity() {
     lateinit var fab_stop : FloatingActionButton
     lateinit var fab_pause : FloatingActionButton
     lateinit var fab_play : FloatingActionButton
+    lateinit var supportButton : Button
+    var workMediaPlayer: MediaPlayer? = null
+    var breakMediaPlayer: MediaPlayer? = null
+
+    //val mediaPlayer = MediaPlayer()
+    //val play_audio_id = resources.getIdentifier("play.mp3", "raw", packageName)
+    //val work_audio_id = resources.getIdentifier("work.mp3", "raw", packageName)
+    // 1. Plays the water sound
+    fun wplaySound() {
+        if (workMediaPlayer == null) {
+            workMediaPlayer = MediaPlayer.create(this, R.raw.work_notify)
+            workMediaPlayer!!.isLooping = false
+            workMediaPlayer!!.start()
+        } else workMediaPlayer!!.start()
+    }
+
+    // 2. Pause playback
+    fun wpauseSound() {
+        if (workMediaPlayer?.isPlaying == true) workMediaPlayer?.pause()
+    }
+
+    // 3. Stops playback
+    fun wstopSound() {
+        if (workMediaPlayer != null) {
+            workMediaPlayer!!.stop()
+            workMediaPlayer!!.release()
+            workMediaPlayer = null
+        }
+    }
+
+    // 1. Plays the water sound
+    fun bplaySound() {
+        if (breakMediaPlayer == null) {
+            breakMediaPlayer = MediaPlayer.create(this, R.raw.break_notify)
+            breakMediaPlayer!!.isLooping = false
+            breakMediaPlayer!!.start()
+        } else breakMediaPlayer!!.start()
+    }
+
+    // 2. Pause playback
+    fun bpauseSound() {
+        if (breakMediaPlayer?.isPlaying == true) breakMediaPlayer?.pause()
+    }
+
+    // 3. Stops playback
+    fun bstopSound() {
+        if (breakMediaPlayer != null) {
+            breakMediaPlayer!!.stop()
+            breakMediaPlayer!!.release()
+            breakMediaPlayer = null
+        }
+    }
 
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
@@ -71,7 +126,12 @@ class Pomodoro : AppCompatActivity() {
         val notificationIntent = Intent(this, Pomodoro::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0)
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            notificationIntent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
 
         val notification: Notification =
             NotificationCompat.Builder(this, channelId)
@@ -111,6 +171,9 @@ class Pomodoro : AppCompatActivity() {
         fab_stop = findViewById(R.id.fab_stop)
         fab_pause = findViewById(R.id.fab_pause)
         fab_play = findViewById(R.id.fab_play)
+        supportButton = findViewById(R.id.support)
+
+        Log.i("timerapp", "onCreate")
 
         //setSupportActionBar(toolbar)
         //supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -119,7 +182,7 @@ class Pomodoro : AppCompatActivity() {
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        textView_completed.setText(completed.toString())
+        textView_completed.setText("Completed sets: "+completed.toString())
 
         createNotificationChannel()
 
@@ -146,6 +209,13 @@ class Pomodoro : AppCompatActivity() {
         timer.breakTimer = savedBreakTimer
         timer.loadWorkTimer()
         textView_countdown.text = timer.displayTime()
+
+        //open buy me a coffee page
+        supportButton.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.buymeacoffee.com/uday101")
+            startActivity(openURL)
+        }
 
         fab_play.setOnClickListener {
 
@@ -262,6 +332,7 @@ class Pomodoro : AppCompatActivity() {
         super.onResume()
         Log.i("timerapp", "on resume")
         registerReceiver(br, IntentFilter(ForegroundService.COUNTDOWN_BR))
+        //handleCountDown(intent)
 
     }
 
@@ -300,6 +371,7 @@ class Pomodoro : AppCompatActivity() {
     }
 
 
+    /**
     override fun onBackPressed() {
         Log.i("timerapp", "on back button")
         val intent = Intent(Intent.ACTION_MAIN)
@@ -307,6 +379,7 @@ class Pomodoro : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
+    **/
 
     private fun startTimer() {
 
@@ -319,6 +392,11 @@ class Pomodoro : AppCompatActivity() {
                 if (!timer.isPause) {
                     timer.loadBreakTimer()
                 }
+                // Change the color of textview to reflect current workstate
+                textView_break.setBackgroundColor(Color.parseColor("#FF0000"))
+                textView_pomodoro.setBackgroundColor(Color.parseColor("#00000000"))
+                // Play notification sound
+                bplaySound()
 
             }
             WorkState.Work -> {
@@ -334,6 +412,10 @@ class Pomodoro : AppCompatActivity() {
                     Log.i("timerapp", "resume timer from  ${timer.displayTime()}")
                     makeToast("Resume with  ${timer.displayTime()}")
                 }
+                textView_break.setBackgroundColor(Color.parseColor("#00000000"))
+                textView_pomodoro.setBackgroundColor(Color.parseColor("#FF0000"))
+                // Play notification sound
+                wplaySound()
             }
         }
 
@@ -364,7 +446,7 @@ class Pomodoro : AppCompatActivity() {
                     WorkState.Work -> {
 
                         completed++
-                        textView_completed.setText(completed.toString())
+                        textView_completed.setText("Completed sets: "+ completed.toString())
                         sendNotification()
 
                         timer.workState = WorkState.Break
